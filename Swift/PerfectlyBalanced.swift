@@ -1,5 +1,7 @@
-
-
+/*
+* Perfectly Balanced exercise on dailyprogrammer.
+* Swift implementation
+*/
 
 // check if the number of x characters and y characters are equal
 func balanced(s: String) -> Bool {
