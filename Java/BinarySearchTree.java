@@ -18,6 +18,40 @@ public class BinarySearchTree {
         
     }
 
+    public BinarySearchTree(int[] data) {
+        for(int i: data) {
+            this.addElement(i);
+        }
+    }
+
+    public void addElement(int data) {
+        if (this.root == null) {
+            this.root = new Node(data);
+        } else {
+            boolean added = false;
+            Node cur = this.root;
+            while (!added) {
+                if (cur.data > data) {
+                    if(cur.left == null) {
+                        cur.left = new Node(data);
+                        added = true;
+                    } else {
+                        cur = cur.left;
+                    }
+                } else {
+                    if(cur.right == null) {
+                        cur.right = new Node(data);
+                        added = true;
+                    } else {
+                        cur = cur.right;
+                    }
+                }
+            }
+
+        }
+
+    }
+
     // preOrder tree traversal
     public static void preOrder(Node root) {
         Node currentNode = root;
