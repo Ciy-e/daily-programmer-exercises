@@ -11,9 +11,17 @@ func factorial(n: Int) -> Int {
 }
 
 func subfactorial(n: Int) -> Int {
-    //@TODO finish writing this exercise.
-    return 0
+    if n == 0 {
+        return 1
+    } else if n == 1 {
+        return 0
+    } else {
+        return (n-1) * (subfactorial(n:n-1) + subfactorial(n:n-2))
+    }
 }
 
 print(factorial(n:4)) // 24
 print(factorial(n:0)) // 1
+
+print(subfactorial(n:5)) // 44
+print(subfactorial(n:6)) // 265
