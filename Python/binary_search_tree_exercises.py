@@ -12,3 +12,20 @@ def height(root):
             return 1 + max(height(root.left), height(root.right))
         else:
             return -1
+
+#checks if a tree is a Binary Search Tree
+def checkBST(root):
+    stack = []
+    data_list = []
+    def inorder(root):
+        if root:
+            inorder(root.left)
+            data_list.append(root.data)
+            inorder(root.right)
+        
+    inorder(root)
+
+    # is every element distinct?
+    if len(data_list) > len(set(data_list)):
+        return False
+    return data_list == sorted(data_list)
