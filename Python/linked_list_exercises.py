@@ -25,3 +25,16 @@ def insertNodeAtPosition(head, data, position):
         cur=cur.next
         ctr+=1
     return head
+
+# reverses a linked list
+def reverse(head):
+    s = []
+    cur = head
+    while cur:
+        s.append(cur.data)
+        cur=cur.next
+    cur = head
+    while cur:
+        cur.data = s.pop()
+        cur=cur.next
+    return head
