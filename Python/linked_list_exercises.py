@@ -1,5 +1,17 @@
 #!/bin/python3
 
+class SinglyLinkedListNode:
+
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+    def get_data(self):
+        return self.data
+    
+    def get_next_node(self):
+        return self.next
+
 #prints the entire linked list given the head node.
 def printLinkedList(head):
     cur = head
@@ -38,3 +50,20 @@ def reverse(head):
         cur.data = s.pop()
         cur=cur.next
     return head
+
+# determines if linked list has a cycle in it.
+def has_cycle(head):
+    detected_cycle = False
+    null_found = False
+    cur = head
+    node_ids = []
+    while not detected_cycle and not null_found:
+        node_ids.append(id(cur))
+        if not cur.next:
+            null_found = True
+        elif id(cur.next) in node_ids:
+            detected_cycle = True
+        else:
+            cur = cur.next
+            
+    return detected_cycle and not null_found
