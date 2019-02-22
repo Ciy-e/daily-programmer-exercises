@@ -67,3 +67,31 @@ def has_cycle(head):
             cur = cur.next
             
     return detected_cycle and not null_found
+
+# insert to a doubly linked list that is sorted while maintaining sort.
+def sortedInsert(head, data):
+    cur = head
+    added = False
+    
+    if data < head.data:
+        newNode = DoublyLinkedListNode(data)
+        newNode.next = head
+        head.prev = newNode
+        head = newNode
+        added = True
+
+    while not added:
+        if not cur.next:
+            cur.next = DoublyLinkedListNode(data)
+            cur.next.prev = cur
+            added = True
+        elif data > cur.data and data <= cur.next.data:
+            newNode = DoublyLinkedListNode(data)
+            newNode.prev = cur
+            newNode.next = cur.next
+            cur.next.prev = newNode
+            cur.next = newNode
+            added = True
+        else:
+            cur = cur.next
+    return head
