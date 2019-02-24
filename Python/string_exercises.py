@@ -8,3 +8,23 @@ def alternatingCharacters(s):
             removals += 1
         last_char = char
     return removals
+
+
+# Returns true if s can be re-arranged into a palindrome.
+def canBeRearrangedIntoPalindrome(s):
+    character_dictionary = {}
+    unique_character_found = False
+
+    for char in s:
+        if char in character_dictionary.keys():
+            character_dictionary[char] += 1
+        else:
+            character_dictionary[char] = 1
+    
+    for char in character_dictionary.keys():
+        if character_dictionary[char] % 2 == 1 and unique_character_found:
+            return True
+        elif character_dictionary[char] % 2 == 1 and not unique_character_found:
+            unique_character_found = True
+
+    return False
