@@ -23,8 +23,8 @@ def canBeRearrangedIntoPalindrome(s):
     
     for char in character_dictionary.keys():
         if character_dictionary[char] % 2 == 1 and unique_character_found:
-            return True
+            return False
         elif character_dictionary[char] % 2 == 1 and not unique_character_found:
             unique_character_found = True
 
-    return False
+    return True
