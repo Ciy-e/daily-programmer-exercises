@@ -28,3 +28,20 @@ def canBeRearrangedIntoPalindrome(s):
             unique_character_found = True
 
     return True
+
+# returns the number of occurances of a character char in the characters of string s repeated n times
+def repeatedCharacter(s, n, char):
+    repeated = 0
+    times_divided = n / len(s)
+    remainder = n % len(s)
+    for i in range(len(s)):
+        if s[i] == char:
+            repeated += 1
+
+    repeated *= times_divided
+
+    for i in range(remainder):
+        if s[i] == char:
+            repeated += 1
+
+    return repeated
